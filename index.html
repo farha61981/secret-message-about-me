@@ -18,12 +18,15 @@
             color: white; /* Make the font color white */
         }
 
-        /* Dynamic background animation */
+        /* Full-screen background animation */
         .dynamic-background {
             animation: backgroundAnimation 20s infinite;
             background-size: 400% 400%;
             background-image: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
             height: 100%; /* Ensure the background covers the full height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         @keyframes backgroundAnimation {
@@ -48,62 +51,61 @@
             100% { opacity: 1; }
         }
 
-        /* Flex container for centering */
-        .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            text-align: center; /* Center align all text */
-        }
-
-        /* Form and layout styles */
-        .bg-transparent {
-            background-color: transparent; /* Make form background transparent */
-        }
-
-        .max-w-lg {
+        /* Form Styles */
+        .form-container {
             max-width: 600px;
             width: 100%;
-        }
-
-        .p-8 {
             padding: 2rem;
-        }
-
-        .rounded-lg {
             border-radius: 10px;
-        }
-
-        .shadow-lg {
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            text-align: center;
+            border: none;
         }
 
-        .mb-4 {
+        .form-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
-        /* Form input focus effects */
-        .focus\:outline-none:focus {
+        .form-container p {
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Form input fields */
+        .input-field, .input-textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .input-field:focus, .input-textarea:focus {
+            border-color: rgba(255, 255, 255, 1);
             outline: none;
         }
 
-        .focus\:ring-2:focus {
-            ring: 2px solid rgba(59, 130, 246, 0.6);
+        /* Button Styles */
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: #4a90e2;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .focus\:ring-blue-500:focus {
-            ring-color: #3b82f6;
-        }
-
-        /* Button hover effect */
-        .hover\:bg-blue-600:hover {
+        .submit-btn:hover {
             background-color: #2563eb;
-        }
-
-        .transition {
-            transition: all 0.3s ease-in-out;
         }
 
         /* Footer Styles */
@@ -112,70 +114,54 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design for Mobile */
-        @media (max-width: 768px) {
-            .max-w-lg {
-                max-width: 100%;
-                margin: 0 20px;
-            }
+        footer p {
+            color: white;
+        }
 
-            .p-8 {
+        footer span {
+            color: #4a90e2;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .form-container {
                 padding: 1.5rem;
             }
-        }
 
-        /* Custom Font for Headers */
-        h1 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
+            .form-container h1 {
+                font-size: 1.5rem;
+            }
 
-        p {
-            font-family: 'Roboto', sans-serif;
-        }
+            .input-field, .input-textarea {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
 
-        .input-textarea, .input-field {
-            color: white; /* White text inside inputs */
-            border-color: rgba(255, 255, 255, 0.6); /* White borders */
-        }
-
-        .input-field:focus, .input-textarea:focus {
-            border-color: rgba(255, 255, 255, 1); /* White borders on focus */
+            .submit-btn {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
-<body class="dynamic-background">
-    <div class="flex-center">
-        <div class="bg-transparent p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
-            <h1 class="text-3xl font-bold mb-6">
-                Share a Secret Message About Me
-            </h1>
+<body>
+    <div class="dynamic-background">
+        <div class="form-container fade-in">
+            <h1>Share a Secret Message About Me</h1>
             <form action="https://formspree.io/f/xwppazzr" method="POST">
-                <div class="mb-4">
-                    <input type="text" name="name" placeholder="Full Name" class="input-field w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <input type="email" name="email" placeholder="Email Address" class="input-field w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <input type="tel" name="phone" placeholder="Phone Number" class="input-field w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <textarea name="message" placeholder="Type your secret message..." class="input-textarea w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
-                    Send Message
-                </button>
+                <input type="text" name="name" placeholder="Full Name" class="input-field" required>
+                <input type="email" name="email" placeholder="Email Address" class="input-field" required>
+                <input type="tel" name="phone" placeholder="Phone Number" class="input-field" required>
+                <textarea name="message" placeholder="Type your secret message..." class="input-textarea" rows="4" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
-            <p class="mt-4 text-sm">
-                You can share about me, good or bad, or casual messages. Let me know!
-            </p>
+            <p>You can share about me, good or bad, or casual messages. Let me know!</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 <span class="text-blue-400">Farha Kousar</span>. All rights reserved.</p>
+        <p>&copy; 2025 <span>Farha Kousar</span>. All rights reserved.</p>
     </footer>
 </body>
 </html>
