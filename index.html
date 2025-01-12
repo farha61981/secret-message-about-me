@@ -4,67 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Message About Me</title>
-    <!-- Tailwind CSS for Modern Styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background: linear-gradient(45deg, #6b73ff, #000dff);
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-            animation: moveBackground 30s linear infinite;
-        }
-
-        @keyframes moveBackground {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 100% 100%;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10%);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .typing-effect {
-            color: #ffcc00;
-            font-style: italic;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.875rem;
-            color: #bbb;
-        }
-
-        footer a {
-            color: #aaa;
-            text-decoration: none;
-        }
-
-        .bg-move {
-            background-size: 300% 300%;
-        }
-    </style>
+    <!-- Link to Tailwind CSS -->
+    <link href="styles.css" rel="stylesheet">
 </head>
-<body class="bg-move">
+<body class="dynamic-background">
     <div class="flex items-center justify-center min-h-screen">
         <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
             <h1 class="text-3xl font-bold text-center mb-6">
@@ -98,17 +41,7 @@
         <p>&copy; 2025 <span class="text-blue-400">Farha Kousar</span>. All rights reserved.</p>
     </footer>
 
-    <script>
-        const textarea = document.querySelector("textarea");
-        const typingEffectText = document.querySelector(".text-center p");
-
-        textarea.addEventListener('input', function() {
-            if (textarea.value.trim() !== "") {
-                typingEffectText.textContent = "You can share about me, good or bad, or casual messages. Let me know!";
-            } else {
-                typingEffectText.textContent = "Type your secret message...";
-            }
-        });
-    </script>
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
