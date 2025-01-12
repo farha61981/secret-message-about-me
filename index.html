@@ -35,69 +35,25 @@
             <h1 class="text-3xl font-bold text-center mb-6">
                 Share a Secret Message About Me
             </h1>
-            <form id="messageForm">
+            <form action="https://formspree.io/f/xwppazzr" method="POST">
                 <div class="mb-4">
-                    <input type="text" id="name" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <input type="text" name="name" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="mb-4">
-                    <input type="email" id="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <input type="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="mb-4">
-                    <input type="tel" id="phone" placeholder="Phone Number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="mb-4">
-                    <textarea id="message" placeholder="Type your secret message..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" required></textarea>
+                    <textarea name="message" placeholder="Type your secret message..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" required></textarea>
                 </div>
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
                     Send Message
                 </button>
             </form>
-            <p id="statusMessage" class="text-center mt-4 text-sm"></p>
+            <p class="text-center mt-4 text-sm">Your message will be sent directly to my email!</p>
         </div>
     </div>
-
-    <script>
-        document.getElementById('messageForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-
-            const data = {
-                service_id: 'service_hosesvd', // Your EmailJS Service ID
-                template_id: 'template_zttj1di', // Your EmailJS Template ID
-                user_id: 'farha_kousar_id', // Your EmailJS User ID
-                template_params: {
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    message: message
-                }
-            };
-
-            try {
-                const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                const statusMessage = document.getElementById('statusMessage');
-                if (response.ok) {
-                    statusMessage.textContent = 'Message sent successfully!';
-                    statusMessage.classList.add('text-green-500');
-                    document.getElementById('messageForm').reset();
-                } else {
-                    const responseData = await response.json();
-                    statusMessage.textContent = 'Failed to send the message. Error: ' + responseData.message;
-                    statusMessage.classList.add('text-red-500');
-                }
-            } catch (error) {
-                document.getElementById('statusMessage').textContent = 'An error occurred: ' + error.message;
-            }
-        });
-    </script>
 </body>
 </html>
