@@ -13,6 +13,16 @@
             font-family: 'Arial', sans-serif;
             overflow: hidden;
             height: 100vh;
+            animation: moveBackground 30s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
         }
 
         .fade-in {
@@ -27,20 +37,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        /* Animation for Dynamic Background */
-        .dynamic-background {
-            animation: moveBackground 30s linear infinite;
-        }
-
-        @keyframes moveBackground {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 100% 100%;
             }
         }
 
@@ -62,9 +58,13 @@
             color: #aaa;
             text-decoration: none;
         }
+
+        .bg-move {
+            background-size: 300% 300%;
+        }
     </style>
 </head>
-<body class="dynamic-background">
+<body class="bg-move">
     <div class="flex items-center justify-center min-h-screen">
         <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
             <h1 class="text-3xl font-bold text-center mb-6">
