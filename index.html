@@ -3,174 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share a Secret Message About Me</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        /* Reset body and HTML for full-height and margin/padding reset */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        /* Dynamic moving gradient background */
-        .dynamic-background {
-            background: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
-            background-size: 400% 400%;
-            animation: backgroundAnimation 20s ease infinite;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        @keyframes backgroundAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Fade-in animation for content */
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            z-index: 1;
-            padding: 2rem;
-        }
-
-        /* Form container styling */
-        .form-container {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            padding: 2rem;
-            width: 100%;
-            max-width: 600px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .form-container:hover {
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        h1 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 1.5rem;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            margin: 0.8rem 0;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            background-color: #fafafa;
-            transition: border 0.3s ease-in-out;
-        }
-
-        .input-field:focus {
-            border-color: #4a90e2;
-            outline: none;
-        }
-
-        button {
-            background-color: #4a90e2;
-            color: white;
-            padding: 12px;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #2563eb;
-        }
-
-        .message {
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #333;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            color: #fff;
-        }
-
-        footer p {
-            margin-top: 1rem;
-            color: #ffffff;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .form-container {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+    <title>Secret Message About Me</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Dynamic Background -->
-    <div class="dynamic-background"></div>
-
-    <!-- Main Content -->
-    <div class="content fade-in">
-        <!-- Form container -->
-        <div class="form-container">
-            <h1>Share a Secret Message About Me</h1>
+    <div class="content-wrapper">
+        <div class="message-container">
+            <h1 class="title">Share a Secret Message About Me</h1>
             <form action="https://formspree.io/f/xwppazzr" method="POST">
-                <!-- Full Name -->
-                <input type="text" name="name" class="input-field" placeholder="Full Name" required>
-                <!-- Email Address -->
-                <input type="email" name="email" class="input-field" placeholder="Email Address" required>
-                <!-- Phone Number -->
-                <input type="tel" name="phone" class="input-field" placeholder="Phone Number" required>
-                <!-- Secret Message -->
-                <textarea name="message" class="input-field" placeholder="Type your secret message..." rows="4" required></textarea>
-                <!-- Submit Button -->
-                <button type="submit">Send Message</button>
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Type your secret message..." rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
-            <p class="message">
-                You can share about me, good or bad, or casual messages. Let me know!
-            </p>
+            <p class="footer-text">You can share about me, good or bad, or casual messages. Let me know!</p>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 <span>Farha Kousar</span>. All rights reserved.</p>
+        <p>&copy; 2025 <span class="highlight">Farha Kousar</span>. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
