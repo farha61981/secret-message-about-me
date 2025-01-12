@@ -1,0 +1,54 @@
+/* Tailwind CSS Setup */
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css');
+
+/* Custom CSS for background and animations */
+body {
+    background: linear-gradient(45deg, #6b73ff, #000dff);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    animation: moveBackground 30s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #bbb;
+}
+
+footer a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.bg-move {
+    background-size: 300% 300%;
+}
