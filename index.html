@@ -11,6 +11,8 @@
             background: linear-gradient(45deg, #6b73ff, #000dff);
             color: #fff;
             font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            height: 100vh;
         }
 
         .fade-in {
@@ -27,11 +29,44 @@
                 transform: translateY(0);
             }
         }
+
+        /* Animation for Dynamic Background */
+        .dynamic-background {
+            animation: moveBackground 30s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .typing-effect {
+            color: #ffcc00;
+            font-style: italic;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+        }
     </style>
 </head>
-<body>
+<body class="dynamic-background">
     <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in">
+        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
             <h1 class="text-3xl font-bold text-center mb-6">
                 Share a Secret Message About Me
             </h1>
@@ -52,8 +87,28 @@
                     Send Message
                 </button>
             </form>
-            <p class="text-center mt-4 text-sm">Your message will be sent directly to my email!</p>
+            <p class="text-center mt-4 text-sm">
+                You can share about me, good or bad, or casual messages. Let me know!
+            </p>
         </div>
     </div>
+
+    <!-- Footer with dynamic info -->
+    <footer>
+        <p>&copy; 2025 <span class="text-blue-400">Farha Kousar</span>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const textarea = document.querySelector("textarea");
+        const typingEffectText = document.querySelector(".text-center p");
+
+        textarea.addEventListener('input', function() {
+            if (textarea.value.trim() !== "") {
+                typingEffectText.textContent = "You can share about me, good or bad, or casual messages. Let me know!";
+            } else {
+                typingEffectText.textContent = "Type your secret message...";
+            }
+        });
+    </script>
 </body>
 </html>
