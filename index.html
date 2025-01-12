@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Message About Me</title>
+    <!-- Tailwind CSS for Modern Styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -22,7 +22,6 @@
                 opacity: 0;
                 transform: translateY(-10%);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -30,11 +29,10 @@
         }
     </style>
 </head>
-
 <body>
     <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in w-full max-w-md">
-            <h1 class="text-3xl font-bold text-center mb-6 text-blue-600">
+        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in">
+            <h1 class="text-3xl font-bold text-center mb-6">
                 Share a Secret Message About Me
             </h1>
             <form id="messageForm">
@@ -68,9 +66,9 @@
             const message = document.getElementById('message').value;
 
             const data = {
-                service_id: 'service_hosesvd', // Your Service ID
-                template_id: 'template_zttj1di', // Your Template ID
-                user_id: 'farha_kousar_id', // Your User ID
+                service_id: 'service_hosesvd', // Your EmailJS Service ID
+                template_id: 'template_zttj1di', // Your EmailJS Template ID
+                user_id: 'farha_kousar_id', // Your EmailJS User ID
                 template_params: {
                     name: name,
                     email: email,
@@ -92,7 +90,8 @@
                     statusMessage.classList.add('text-green-500');
                     document.getElementById('messageForm').reset();
                 } else {
-                    statusMessage.textContent = 'Failed to send the message. Please try again.';
+                    const responseData = await response.json();
+                    statusMessage.textContent = 'Failed to send the message. Error: ' + responseData.message;
                     statusMessage.classList.add('text-red-500');
                 }
             } catch (error) {
@@ -101,5 +100,4 @@
         });
     </script>
 </body>
-
 </html>
