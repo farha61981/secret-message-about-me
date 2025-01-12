@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Message About Me</title>
+    <title>Share a Secret Message About Me</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        /* Reset body and HTML for full-height and margin/padding reset */
         body, html {
             margin: 0;
             padding: 0;
@@ -14,30 +15,26 @@
             background-color: #f0f0f0;
         }
 
-        /* Dynamic background animation */
+        /* Dynamic moving gradient background */
         .dynamic-background {
-            animation: backgroundAnimation 20s infinite;
+            background: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
             background-size: 400% 400%;
-            background-image: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
+            animation: backgroundAnimation 20s ease infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            z-index: -1;
         }
 
         @keyframes backgroundAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Fade-in effect */
+        /* Fade-in animation for content */
         .fade-in {
             animation: fadeIn 2s ease-in-out;
         }
@@ -47,106 +44,65 @@
             100% { opacity: 1; }
         }
 
-        .bg-white {
-            background-color: white;
-        }
-
-        .text-gray-800 {
-            color: #333;
-        }
-
-        .text-blue-400 {
-            color: #4a90e2;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .max-w-lg {
-            max-width: 600px;
-        }
-
-        .w-full {
-            width: 100%;
-        }
-
-        .p-8 {
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            z-index: 1;
             padding: 2rem;
         }
 
-        .rounded-lg {
-            border-radius: 10px;
+        /* Form container styling */
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            width: 100%;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
-        .shadow-lg {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-
-        .focus\:outline-none:focus {
-            outline: none;
-        }
-
-        .focus\:ring-2:focus {
-            ring: 2px solid rgba(59, 130, 246, 0.6);
-        }
-
-        .focus\:ring-blue-500:focus {
-            ring-color: #3b82f6;
-        }
-
-        .hover\:bg-blue-600:hover {
-            background-color: #2563eb;
-        }
-
-        .transition {
-            transition: all 0.3s ease-in-out;
+        .form-container:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
             font-family: 'Roboto', sans-serif;
             font-size: 2.5rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #333;
+            margin-bottom: 1.5rem;
         }
 
-        p {
-            font-family: 'Roboto', sans-serif;
-            color: #ffffff;
-            font-size: 1rem;
-        }
-
-        input, textarea, button {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        input, textarea {
-            border: 1px solid #ddd;
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 8px;
+        .input-field {
             width: 100%;
-            margin-bottom: 1rem;
+            padding: 12px;
+            margin: 0.8rem 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
             background-color: #fafafa;
-            transition: border-color 0.3s ease-in-out;
+            transition: border 0.3s ease-in-out;
         }
 
-        input:focus, textarea:focus {
+        .input-field:focus {
             border-color: #4a90e2;
+            outline: none;
         }
 
         button {
             background-color: #4a90e2;
-            color: #fff;
+            color: white;
             padding: 12px;
             font-size: 1.1rem;
             border-radius: 8px;
             border: none;
             cursor: pointer;
+            width: 100%;
             transition: background-color 0.3s ease;
         }
 
@@ -154,52 +110,59 @@
             background-color: #2563eb;
         }
 
-        /* Footer styling */
+        .message {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
         footer {
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #fff;
         }
 
         footer p {
-            font-size: 0.9rem;
-            color: white;
+            margin-top: 1rem;
+            color: #ffffff;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
 
-            .p-8 {
+            .form-container {
                 padding: 1.5rem;
             }
         }
     </style>
 </head>
-<body class="dynamic-background">
-    <div class="flex items-center justify-center min-h-screen w-full">
-        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
-            <h1 class="text-3xl font-bold text-center mb-6">
-                Share a Secret Message About Me
-            </h1>
+<body>
+    <!-- Dynamic Background -->
+    <div class="dynamic-background"></div>
+
+    <!-- Main Content -->
+    <div class="content fade-in">
+        <!-- Form container -->
+        <div class="form-container">
+            <h1>Share a Secret Message About Me</h1>
             <form action="https://formspree.io/f/xwppazzr" method="POST">
-                <div class="mb-4">
-                    <input type="text" name="name" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <input type="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="mb-4">
-                    <textarea name="message" placeholder="Type your secret message..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
-                    Send Message
-                </button>
+                <!-- Full Name -->
+                <input type="text" name="name" class="input-field" placeholder="Full Name" required>
+                <!-- Email Address -->
+                <input type="email" name="email" class="input-field" placeholder="Email Address" required>
+                <!-- Phone Number -->
+                <input type="tel" name="phone" class="input-field" placeholder="Phone Number" required>
+                <!-- Secret Message -->
+                <textarea name="message" class="input-field" placeholder="Type your secret message..." rows="4" required></textarea>
+                <!-- Submit Button -->
+                <button type="submit">Send Message</button>
             </form>
-            <p class="text-center mt-4 text-sm">
+            <p class="message">
                 You can share about me, good or bad, or casual messages. Let me know!
             </p>
         </div>
@@ -207,7 +170,7 @@
 
     <!-- Footer -->
     <footer>
-        <p class="text-center text-white mt-6">&copy; 2025 <span class="text-blue-400">Farha Kousar</span>. All rights reserved.</p>
+        <p>&copy; 2025 <span>Farha Kousar</span>. All rights reserved.</p>
     </footer>
 </body>
 </html>
