@@ -16,6 +16,10 @@
             height: 100%;
             font-family: 'Roboto', sans-serif;
             color: white; /* Make the font color white */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack content vertically */
         }
 
         /* Full-screen background animation */
@@ -24,9 +28,10 @@
             background-size: 400% 400%;
             background-image: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
             height: 100%; /* Ensure the background covers the full height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100%;  /* Ensure the background covers the full width */
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         @keyframes backgroundAnimation {
@@ -53,14 +58,16 @@
 
         /* Form Styles */
         .form-container {
-            max-width: 600px;
             width: 100%;
+            max-width: 600px;
             padding: 2rem;
+            text-align: center;
             border-radius: 10px;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            text-align: center;
-            border: none;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .form-container h1 {
@@ -68,6 +75,10 @@
             font-weight: 700;
             font-size: 2rem;
             margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6f61, #4a90e2);
+            -webkit-background-clip: text;
+            color: transparent; /* Make text transparent and apply gradient */
         }
 
         .form-container p {
@@ -110,8 +121,9 @@
 
         /* Footer Styles */
         footer {
-            margin-top: 20px;
+            text-align: center;
             font-size: 0.9rem;
+            margin-top: 20px;
         }
 
         footer p {
@@ -145,18 +157,20 @@
     </style>
 </head>
 <body>
-    <div class="dynamic-background">
-        <div class="form-container fade-in">
-            <h1>Share a Secret Message About Me</h1>
-            <form action="https://formspree.io/f/xwppazzr" method="POST">
-                <input type="text" name="name" placeholder="Full Name" class="input-field" required>
-                <input type="email" name="email" placeholder="Email Address" class="input-field" required>
-                <input type="tel" name="phone" placeholder="Phone Number" class="input-field" required>
-                <textarea name="message" placeholder="Type your secret message..." class="input-textarea" rows="4" required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-            <p>You can share about me, good or bad, or casual messages. Let me know!</p>
-        </div>
+    <!-- Fullscreen animated background -->
+    <div class="dynamic-background"></div>
+
+    <!-- Form Container -->
+    <div class="form-container fade-in">
+        <h1>Share a Secret Message About Me</h1>
+        <form action="https://formspree.io/f/xwppazzr" method="POST">
+            <input type="text" name="name" placeholder="Full Name" class="input-field" required>
+            <input type="email" name="email" placeholder="Email Address" class="input-field" required>
+            <input type="tel" name="phone" placeholder="Phone Number" class="input-field" required>
+            <textarea name="message" placeholder="Type your secret message..." class="input-textarea" rows="4" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <p>You can share about me, good or bad, or casual messages. Let me know!</p>
     </div>
 
     <!-- Footer -->
