@@ -19,6 +19,10 @@
             animation: backgroundAnimation 20s infinite;
             background-size: 400% 400%;
             background-image: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         @keyframes backgroundAnimation {
@@ -149,10 +153,31 @@
         button:hover {
             background-color: #2563eb;
         }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .p-8 {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body class="dynamic-background">
-    <div class="flex items-center justify-center min-h-screen">
+    <div class="flex items-center justify-center min-h-screen w-full">
         <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
             <h1 class="text-3xl font-bold text-center mb-6">
                 Share a Secret Message About Me
