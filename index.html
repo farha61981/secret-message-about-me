@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Message About Me</title>
+
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
+        /* General Styles */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
         }
 
@@ -42,6 +47,15 @@
             100% { opacity: 1; }
         }
 
+        /* Form and layout styles */
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
         .bg-white {
             background-color: white;
         }
@@ -60,9 +74,6 @@
 
         .max-w-lg {
             max-width: 600px;
-        }
-
-        .w-full {
             width: 100%;
         }
 
@@ -82,6 +93,7 @@
             margin-bottom: 1rem;
         }
 
+        /* Form input focus effects */
         .focus\:outline-none:focus {
             outline: none;
         }
@@ -94,6 +106,7 @@
             ring-color: #3b82f6;
         }
 
+        /* Button hover effect */
         .hover\:bg-blue-600:hover {
             background-color: #2563eb;
         }
@@ -101,10 +114,40 @@
         .transition {
             transition: all 0.3s ease-in-out;
         }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .max-w-lg {
+                max-width: 100%;
+                margin: 0 20px;
+            }
+
+            .p-8 {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Custom Font for Headers */
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #333;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+        }
     </style>
 </head>
 <body class="dynamic-background">
-    <div class="flex items-center justify-center min-h-screen">
+    <div class="flex-center">
         <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
             <h1 class="text-3xl font-bold text-center mb-6">
                 Share a Secret Message About Me
