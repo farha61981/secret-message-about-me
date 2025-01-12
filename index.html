@@ -4,7 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Message About Me</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Dynamic background animation */
+        .dynamic-background {
+            animation: backgroundAnimation 20s infinite;
+            background-size: 400% 400%;
+            background-image: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Fade-in effect */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .text-gray-800 {
+            color: #333;
+        }
+
+        .text-blue-400 {
+            color: #4a90e2;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .max-w-lg {
+            max-width: 600px;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .rounded-lg {
+            border-radius: 10px;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .focus\:outline-none:focus {
+            outline: none;
+        }
+
+        .focus\:ring-2:focus {
+            ring: 2px solid rgba(59, 130, 246, 0.6);
+        }
+
+        .focus\:ring-blue-500:focus {
+            ring-color: #3b82f6;
+        }
+
+        .hover\:bg-blue-600:hover {
+            background-color: #2563eb;
+        }
+
+        .transition {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
 </head>
 <body class="dynamic-background">
     <div class="flex items-center justify-center min-h-screen">
@@ -35,11 +132,9 @@
         </div>
     </div>
 
-    <!-- Footer with dynamic info -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 <span class="text-blue-400">Farha Kousar</span>. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
