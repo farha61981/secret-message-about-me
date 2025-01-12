@@ -34,26 +34,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Moving Text */
-        .moving-text {
-            position: absolute;
-            bottom: 10%;
-            right: 5%;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: white;
-            animation: textAnimation 10s infinite linear;
-        }
-
-        @keyframes textAnimation {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
         /* Fade-in animation for content */
         .fade-in {
             animation: fadeIn 2s ease-in-out;
@@ -164,11 +144,6 @@
 <body>
     <!-- Dynamic Background -->
     <div class="dynamic-background"></div>
-
-    <!-- Moving Text -->
-    <div class="moving-text">
-        © 2025 Farha Kousar
-    </div>
 
     <!-- Main Content -->
     <div class="content fade-in">
