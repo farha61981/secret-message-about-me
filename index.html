@@ -1,38 +1,188 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Message About Me</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Dynamic background animation */
+        .dynamic-background {
+            animation: backgroundAnimation 20s infinite;
+            background-size: 400% 400%;
+            background-image: linear-gradient(45deg, #ff6f61, #4a90e2, #f5a623, #50e3c2);
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Fade-in effect */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .text-gray-800 {
+            color: #333;
+        }
+
+        .text-blue-400 {
+            color: #4a90e2;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .max-w-lg {
+            max-width: 600px;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .rounded-lg {
+            border-radius: 10px;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .focus\:outline-none:focus {
+            outline: none;
+        }
+
+        .focus\:ring-2:focus {
+            ring: 2px solid rgba(59, 130, 246, 0.6);
+        }
+
+        .focus\:ring-blue-500:focus {
+            ring-color: #3b82f6;
+        }
+
+        .hover\:bg-blue-600:hover {
+            background-color: #2563eb;
+        }
+
+        .transition {
+            transition: all 0.3s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        input, textarea, button {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input, textarea {
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #4a90e2;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+    </style>
 </head>
-<body>
-    <div class="content-wrapper">
-        <div class="message-container">
-            <h1 class="title">Share a Secret Message About Me</h1>
+<body class="dynamic-background">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg fade-in max-w-lg w-full">
+            <h1 class="text-3xl font-bold text-center mb-6">
+                Share a Secret Message About Me
+            </h1>
             <form action="https://formspree.io/f/xwppazzr" method="POST">
-                <div class="input-group">
-                    <input type="text" name="name" placeholder="Full Name" required>
+                <div class="mb-4">
+                    <input type="text" name="name" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="Email Address" required>
+                <div class="mb-4">
+                    <input type="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
-                <div class="input-group">
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                <div class="mb-4">
+                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
-                <div class="input-group">
-                    <textarea name="message" placeholder="Type your secret message..." rows="4" required></textarea>
+                <div class="mb-4">
+                    <textarea name="message" placeholder="Type your secret message..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                    Send Message
+                </button>
             </form>
-            <p class="footer-text">You can share about me, good or bad, or casual messages. Let me know!</p>
+            <p class="text-center mt-4 text-sm">
+                You can share about me, good or bad, or casual messages. Let me know!
+            </p>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 <span class="highlight">Farha Kousar</span>. All rights reserved.</p>
+        <p class="text-center text-white mt-6">&copy; 2025 <span class="text-blue-400">Farha Kousar</span>. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
